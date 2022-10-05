@@ -1,2 +1,2 @@
-# loko-planner
-A Loko-AI extension that can schedule flows execution
+# loko-cleaner
+A Loko-AI extension that can clean duplicates from json data and lists
