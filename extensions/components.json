@@ -1,0 +1,75 @@
+[
+ {
+  "name": "Cleaner",
+  "description": "",
+  "group": "Custom",
+  "icon": "RiBrush2Fill",
+  "click": null,
+  "configured": false,
+  "inputs": [
+   {
+    "id": "json_input",
+    "label": "JSON Input",
+    "service": "clean_input",
+    "to": "cleaned_output"
+   }
+  ],
+  "outputs": [
+   {
+    "id": "cleaned_output",
+    "label": "Cleaned Output"
+   }
+  ],
+  "options": {
+   "values": {},
+   "args": [
+    {
+     "name": "data_type",
+     "type": "select",
+     "label": "Input data format",
+     "helper": "",
+     "group": "",
+     "value": null,
+     "description": "",
+     "validation": {
+      "required": "Required field"
+     },
+     "options": [
+      "JSON",
+      "List"
+     ]
+    },
+    {
+     "name": "key",
+     "type": "dynamic",
+     "label": "Key",
+     "helper": "",
+     "group": "",
+     "value": null,
+     "description": "The specified key will be used to check for duplicates",
+     "validation": {
+      "required": "Required field"
+     },
+     "parent": "data_type",
+     "condition": "{parent}===\"JSON\"",
+     "dynamicType": "text",
+     "options": null
+    },
+    {
+     "name": "ignore_err",
+     "type": "dynamic",
+     "label": "Ignor Error",
+     "helper": "",
+     "group": "",
+     "value": null,
+     "description": "Ignore missing key errors",
+     "validation": null,
+     "parent": "data_type",
+     "condition": "{parent}===\"JSON\"",
+     "dynamicType": "boolean",
+     "options": null
+    }
+   ]
+  }
+ }
+]

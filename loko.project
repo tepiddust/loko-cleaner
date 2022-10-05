@@ -1,0 +1,366 @@
+{
+  "name": "loko-cleaner",
+  "id": "loko-cleaner",
+  "description": "",
+  "created_on": "29/09/2022, 12:59:50",
+  "last_modify": "05/10/2022, 09:18:46",
+  "graphs": {
+    "main": {
+      "nodes": [
+        {
+          "id": "4c7881e1-c5b5-4de7-968e-36e2ceee6263",
+          "position": {
+            "x": 438,
+            "y": 142
+          },
+          "type": "custom",
+          "dragHandle": "#nodeHandle",
+          "sourcePosition": "right",
+          "targetPosition": "left",
+          "width": 150,
+          "height": 56,
+          "selected": false,
+          "dragging": false,
+          "data": {
+            "name": "Trigger",
+            "events": null,
+            "description": "### Description\nThe TRIGGER component is used to start streams.\n\n### Output\nThe parameter Type can be set as a **String** or an **Object**. The parameter Value, on the other hand, defines the actual output of the component.",
+            "inputs": [],
+            "outputs": [
+              {
+                "id": "output",
+                "label": "output"
+              }
+            ],
+            "configured": true,
+            "options": {
+              "group": "Common",
+              "args": [
+                {
+                  "name": "comment",
+                  "type": "area",
+                  "label": "Node comment",
+                  "helper": "Use it to explain the usage of this node"
+                },
+                {
+                  "name": "alias",
+                  "type": "text",
+                  "label": "Name",
+                  "helper": "Use this name as an alias"
+                },
+                {
+                  "name": "debug",
+                  "type": "boolean",
+                  "label": "Debug to Console",
+                  "divider": true
+                },
+                {
+                  "name": "type",
+                  "type": "select",
+                  "description": "The type of data",
+                  "label": "Type",
+                  "validation": {
+                    "required": "Required field"
+                  },
+                  "fragment": null,
+                  "advanced": false,
+                  "options": [
+                    "String",
+                    "Object"
+                  ],
+                  "value": null
+                },
+                {
+                  "name": "value",
+                  "type": "dynamic",
+                  "dynamicType": {
+                    "String": "area",
+                    "Object": "code"
+                  },
+                  "parent": "type",
+                  "label": "Value",
+                  "validation": {
+                    "required": "Required field"
+                  }
+                }
+              ],
+              "click": "Send message",
+              "icon": "RiPlayFill",
+              "values": {
+                "comment": "",
+                "alias": "JSON data",
+                "debug": true,
+                "type": "Object",
+                "value": "[\n        {\n            \"Company\":\"company1\",\n            \"Person\":{\n                \"FirstName\":\"mario\",\n                \"LastName\":\"rossi\"\n            }\n        },\n        {\n            \"Company\":\"company3\",\n            \"Person\":{\n                \"FirstName\":\"giuseppe\",\n                \"LastName\":\"verdi\"\n            }\n        },\n        {\n            \"Company\":\"company2\",\n            \"Person\":{\n                \"FirstName\":\"mario\",\n                \"LastName\":\"bianchi\"\n            }\n        }\n    ]"
+              }
+            },
+            "locked": null
+          },
+          "selectable": true,
+          "draggable": true,
+          "positionAbsolute": {
+            "x": 438,
+            "y": 142
+          },
+          "__class__": "Node"
+        },
+        {
+          "id": "e6aeb52d-043e-4608-8a1c-fa56e4096be8",
+          "position": {
+            "x": 865,
+            "y": 248
+          },
+          "type": "custom",
+          "dragHandle": "#nodeHandle",
+          "sourcePosition": "right",
+          "targetPosition": "left",
+          "width": 150,
+          "height": 56,
+          "selected": false,
+          "dragging": false,
+          "data": {
+            "name": "Cleaner",
+            "events": null,
+            "description": "",
+            "inputs": [
+              {
+                "id": "json_input",
+                "label": "JSON Input",
+                "service": "clean_input",
+                "to": "cleaned_output"
+              }
+            ],
+            "outputs": [
+              {
+                "id": "cleaned_output",
+                "label": "Cleaned Output"
+              }
+            ],
+            "configured": true,
+            "options": {
+              "group": "Custom",
+              "args": [
+                {
+                  "name": "comment",
+                  "type": "area",
+                  "label": "Node comment",
+                  "helper": "Use it to explain the usage of this node"
+                },
+                {
+                  "name": "alias",
+                  "type": "text",
+                  "label": "Name",
+                  "helper": "Use this name as an alias"
+                },
+                {
+                  "name": "debug",
+                  "type": "boolean",
+                  "label": "Debug to Console",
+                  "divider": true
+                },
+                {
+                  "name": "data_type",
+                  "type": "select",
+                  "label": "Input data format",
+                  "helper": "",
+                  "group": "",
+                  "value": null,
+                  "description": "",
+                  "validation": {
+                    "required": "Required field"
+                  },
+                  "options": [
+                    "JSON",
+                    "List"
+                  ]
+                },
+                {
+                  "name": "key",
+                  "type": "dynamic",
+                  "label": "Key",
+                  "helper": "",
+                  "group": "",
+                  "value": null,
+                  "description": "The specified key will be used to check for duplicates",
+                  "validation": {
+                    "required": "Required field"
+                  },
+                  "parent": "data_type",
+                  "condition": "{parent}===\"JSON\"",
+                  "dynamicType": "text",
+                  "options": null
+                },
+                {
+                  "name": "ignore_err",
+                  "type": "dynamic",
+                  "label": "Ignor Error",
+                  "helper": "",
+                  "group": "",
+                  "value": null,
+                  "description": "Ignore missing key errors",
+                  "validation": null,
+                  "parent": "data_type",
+                  "condition": "{parent}===\"JSON\"",
+                  "dynamicType": "boolean",
+                  "options": null
+                }
+              ],
+              "click": null,
+              "icon": "RiBrush2Fill",
+              "values": {
+                "comment": "",
+                "alias": "",
+                "debug": true,
+                "data_type": "JSON",
+                "key": "Person.FirstName",
+                "ignore_err": false
+              }
+            },
+            "locked": null
+          },
+          "selectable": true,
+          "draggable": true,
+          "positionAbsolute": {
+            "x": 865,
+            "y": 248
+          },
+          "__class__": "Node"
+        },
+        {
+          "id": "83e28155-7254-460e-8ace-3d1dbd502bbd",
+          "position": {
+            "x": 439,
+            "y": 294
+          },
+          "type": "custom",
+          "dragHandle": "#nodeHandle",
+          "sourcePosition": "right",
+          "targetPosition": "left",
+          "width": 150,
+          "height": 104,
+          "selected": false,
+          "dragging": false,
+          "data": {
+            "name": "Trigger",
+            "events": null,
+            "description": "### Description\nThe TRIGGER component is used to start streams.\n\n### Output\nThe parameter Type can be set as a **String** or an **Object**. The parameter Value, on the other hand, defines the actual output of the component.",
+            "inputs": [],
+            "outputs": [
+              {
+                "id": "output",
+                "label": "output"
+              }
+            ],
+            "configured": true,
+            "options": {
+              "group": "Common",
+              "args": [
+                {
+                  "name": "comment",
+                  "type": "area",
+                  "label": "Node comment",
+                  "helper": "Use it to explain the usage of this node"
+                },
+                {
+                  "name": "alias",
+                  "type": "text",
+                  "label": "Name",
+                  "helper": "Use this name as an alias"
+                },
+                {
+                  "name": "debug",
+                  "type": "boolean",
+                  "label": "Debug to Console",
+                  "divider": true
+                },
+                {
+                  "name": "type",
+                  "type": "select",
+                  "description": "The type of data",
+                  "label": "Type",
+                  "validation": {
+                    "required": "Required field"
+                  },
+                  "fragment": null,
+                  "advanced": false,
+                  "options": [
+                    "String",
+                    "Object"
+                  ],
+                  "value": null
+                },
+                {
+                  "name": "value",
+                  "type": "dynamic",
+                  "dynamicType": {
+                    "String": "area",
+                    "Object": "code"
+                  },
+                  "parent": "type",
+                  "label": "Value",
+                  "validation": {
+                    "required": "Required field"
+                  }
+                }
+              ],
+              "click": "Send message",
+              "icon": "RiPlayFill",
+              "values": {
+                "comment": "",
+                "alias": "List",
+                "debug": true,
+                "type": "Object",
+                "value": "['gfg', 1, 2, 'is', 'best', 'best', 1,1,1]"
+              }
+            },
+            "locked": null
+          },
+          "selectable": true,
+          "draggable": true,
+          "positionAbsolute": {
+            "x": 439,
+            "y": 294
+          },
+          "__class__": "Node"
+        }
+      ],
+      "edges": [
+        {
+          "id": "reactflow__edge-83e28155-7254-460e-8ace-3d1dbd502bbdoutput-e6aeb52d-043e-4608-8a1c-fa56e4096be8json_input",
+          "source": "83e28155-7254-460e-8ace-3d1dbd502bbd",
+          "sourceHandle": "output",
+          "target": "e6aeb52d-043e-4608-8a1c-fa56e4096be8",
+          "targetHandle": "json_input",
+          "data": {
+            "startColor": "#D770AD",
+            "stopColor": "#888"
+          },
+          "selected": false,
+          "dragging": false,
+          "__class__": "Edge"
+        },
+        {
+          "id": "reactflow__edge-4c7881e1-c5b5-4de7-968e-36e2ceee6263output-e6aeb52d-043e-4608-8a1c-fa56e4096be8json_input",
+          "source": "4c7881e1-c5b5-4de7-968e-36e2ceee6263",
+          "sourceHandle": "output",
+          "target": "e6aeb52d-043e-4608-8a1c-fa56e4096be8",
+          "targetHandle": "json_input",
+          "data": {
+            "startColor": "#D770AD",
+            "stopColor": "#888"
+          },
+          "selected": false,
+          "dragging": false,
+          "__class__": "Edge"
+        }
+      ],
+      "__class__": "Graph"
+    }
+  },
+  "open": [
+    "main"
+  ],
+  "active": "main",
+  "version": "1.0.0",
+  "__class__": "Project"
+}
