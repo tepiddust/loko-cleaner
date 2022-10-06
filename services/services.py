@@ -1,6 +1,8 @@
+import json
+
 from flask import Flask, request
 
-from utils.clean_utils import clean_json_duplicates, clean_list_duplicates
+from utils.clean_utils import clean_json_duplicates, clean_primitive_duplicates
 
 app = Flask("")
 
@@ -9,19 +11,39 @@ app = Flask("")
 def clean_input():
     input_value = request.json.get("value")
     args = request.json.get('args')
-    data_type = args.get('data_type')
+    data_type = ""
 
-    if args == {} or data_type==None:
+    if args == {}:
         raise Exception("Can't start flow - ERROR: Cleaner, missing required argumens'")
+
+    remove_duplicates = args.get('remove_duplicates')
+    replace_null = args.get('replace_null')
+
+    if isinstance(input_value, list):
+        data_type = 'JSON'
+        for item in input_value:
+            if not isinstance(item, dict):
+                data_type = 'Primitive'
+    else:
+        raise ValueError('Unsupported input data')
+
+    print("DATATYPE", data_type)
 
     match data_type:
         case 'JSON':
-            key = args.get('key', None)
-            ignore_err = args.get('ignore_err', False)
-            result = clean_json_duplicates(key, input_value, ignore_err)
-        case 'List':
-            result = clean_list_duplicates(input_value)
-
+            if remove_duplicates:
+                key = args.get('key', None)
+                ignore_err = args.get('ignore_err', False)
+                result = clean_json_duplicates(key, input_value, ignore_err)
+            if replace_null:
+                replacing_text = args.get('replacing_text')
+                #TODO funzione replace
+        case 'Primitive':
+            if remove_duplicates:
+                result = clean_primitive_duplicates(input_value)
+            if replace_null:
+                replacing_text = args.get('replacing_text')
+                #TODO funzione replace
     return result
 
 

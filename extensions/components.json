@@ -24,20 +24,16 @@
    "values": {},
    "args": [
     {
-     "name": "data_type",
-     "type": "select",
-     "label": "Input data format",
+     "name": "remove_duplicates",
+     "type": "boolean",
+     "label": "Remove Duplicates",
      "helper": "",
      "group": "",
      "value": null,
-     "description": "",
+     "description": "The specified key will be used to check for duplicates",
      "validation": {
       "required": "Required field"
-     },
-     "options": [
-      "JSON",
-      "List"
-     ]
+     }
     },
     {
      "name": "key",
@@ -50,8 +46,8 @@
      "validation": {
       "required": "Required field"
      },
-     "parent": "data_type",
-     "condition": "{parent}===\"JSON\"",
+     "parent": "remove_duplicates",
+     "condition": "{parent}===true",
      "dynamicType": "text",
      "options": null
     },
@@ -64,9 +60,37 @@
      "value": null,
      "description": "Ignore missing key errors",
      "validation": null,
-     "parent": "data_type",
-     "condition": "{parent}===\"JSON\"",
+     "parent": "remove_duplicates",
+     "condition": "{parent}===true",
      "dynamicType": "boolean",
+     "options": null
+    },
+    {
+     "name": "replace_null",
+     "type": "boolean",
+     "label": "Replace Null Values",
+     "helper": "",
+     "group": "",
+     "value": null,
+     "description": "The specified key will be used to check for duplicates",
+     "validation": {
+      "required": "Required field"
+     }
+    },
+    {
+     "name": "replacing_text",
+     "type": "dynamic",
+     "label": "Replacing Text",
+     "helper": "",
+     "group": "",
+     "value": null,
+     "description": "The specified key will be used to check for duplicates",
+     "validation": {
+      "required": "Required field"
+     },
+     "parent": "replace_null",
+     "condition": "{parent}===true",
+     "dynamicType": "text",
      "options": null
     }
    ]

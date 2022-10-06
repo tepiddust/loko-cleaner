@@ -3,7 +3,7 @@
   "id": "loko-cleaner",
   "description": "",
   "created_on": "29/09/2022, 12:59:50",
-  "last_modify": "05/10/2022, 09:18:46",
+  "last_modify": "06/10/2022, 15:12:38",
   "graphs": {
     "main": {
       "nodes": [
@@ -11,7 +11,7 @@
           "id": "4c7881e1-c5b5-4de7-968e-36e2ceee6263",
           "position": {
             "x": 438,
-            "y": 142
+            "y": 141.12944943670388
           },
           "type": "custom",
           "dragHandle": "#nodeHandle",
@@ -100,129 +100,7 @@
           "draggable": true,
           "positionAbsolute": {
             "x": 438,
-            "y": 142
-          },
-          "__class__": "Node"
-        },
-        {
-          "id": "e6aeb52d-043e-4608-8a1c-fa56e4096be8",
-          "position": {
-            "x": 865,
-            "y": 248
-          },
-          "type": "custom",
-          "dragHandle": "#nodeHandle",
-          "sourcePosition": "right",
-          "targetPosition": "left",
-          "width": 150,
-          "height": 56,
-          "selected": false,
-          "dragging": false,
-          "data": {
-            "name": "Cleaner",
-            "events": null,
-            "description": "",
-            "inputs": [
-              {
-                "id": "json_input",
-                "label": "JSON Input",
-                "service": "clean_input",
-                "to": "cleaned_output"
-              }
-            ],
-            "outputs": [
-              {
-                "id": "cleaned_output",
-                "label": "Cleaned Output"
-              }
-            ],
-            "configured": true,
-            "options": {
-              "group": "Custom",
-              "args": [
-                {
-                  "name": "comment",
-                  "type": "area",
-                  "label": "Node comment",
-                  "helper": "Use it to explain the usage of this node"
-                },
-                {
-                  "name": "alias",
-                  "type": "text",
-                  "label": "Name",
-                  "helper": "Use this name as an alias"
-                },
-                {
-                  "name": "debug",
-                  "type": "boolean",
-                  "label": "Debug to Console",
-                  "divider": true
-                },
-                {
-                  "name": "data_type",
-                  "type": "select",
-                  "label": "Input data format",
-                  "helper": "",
-                  "group": "",
-                  "value": null,
-                  "description": "",
-                  "validation": {
-                    "required": "Required field"
-                  },
-                  "options": [
-                    "JSON",
-                    "List"
-                  ]
-                },
-                {
-                  "name": "key",
-                  "type": "dynamic",
-                  "label": "Key",
-                  "helper": "",
-                  "group": "",
-                  "value": null,
-                  "description": "The specified key will be used to check for duplicates",
-                  "validation": {
-                    "required": "Required field"
-                  },
-                  "parent": "data_type",
-                  "condition": "{parent}===\"JSON\"",
-                  "dynamicType": "text",
-                  "options": null
-                },
-                {
-                  "name": "ignore_err",
-                  "type": "dynamic",
-                  "label": "Ignor Error",
-                  "helper": "",
-                  "group": "",
-                  "value": null,
-                  "description": "Ignore missing key errors",
-                  "validation": null,
-                  "parent": "data_type",
-                  "condition": "{parent}===\"JSON\"",
-                  "dynamicType": "boolean",
-                  "options": null
-                }
-              ],
-              "click": null,
-              "icon": "RiBrush2Fill",
-              "values": {
-                "comment": "",
-                "alias": "",
-                "debug": true,
-                "data_type": "JSON",
-                "key": "Person.FirstName",
-                "ignore_err": false
-              }
-            },
-            "locked": null
-          },
-          "selectable": true,
-          "draggable": true,
-          "positionAbsolute": {
-            "x": 865,
-            "y": 248
+            "y": 141.12944943670388
           },
           "__class__": "Node"
         },
@@ -230,7 +108,7 @@
           "id": "83e28155-7254-460e-8ace-3d1dbd502bbd",
           "position": {
             "x": 439,
-            "y": 294
+            "y": 293.1294494367039
           },
           "type": "custom",
           "dragHandle": "#nodeHandle",
@@ -319,17 +197,164 @@
           "draggable": true,
           "positionAbsolute": {
             "x": 439,
-            "y": 294
+            "y": 293.1294494367039
+          },
+          "__class__": "Node"
+        },
+        {
+          "id": "1934f10f-560d-48ce-a6ac-a4c8f36678fc",
+          "position": {
+            "x": 1005,
+            "y": 300
+          },
+          "type": "custom",
+          "dragHandle": "#nodeHandle",
+          "sourcePosition": "right",
+          "targetPosition": "left",
+          "width": 150,
+          "height": 56,
+          "selected": false,
+          "dragging": false,
+          "data": {
+            "name": "Cleaner",
+            "events": null,
+            "description": "",
+            "inputs": [
+              {
+                "id": "json_input",
+                "label": "JSON Input",
+                "service": "clean_input",
+                "to": "cleaned_output"
+              }
+            ],
+            "outputs": [
+              {
+                "id": "cleaned_output",
+                "label": "Cleaned Output"
+              }
+            ],
+            "configured": true,
+            "options": {
+              "group": "Custom",
+              "args": [
+                {
+                  "name": "comment",
+                  "type": "area",
+                  "label": "Node comment",
+                  "helper": "Use it to explain the usage of this node"
+                },
+                {
+                  "name": "alias",
+                  "type": "text",
+                  "label": "Name",
+                  "helper": "Use this name as an alias"
+                },
+                {
+                  "name": "debug",
+                  "type": "boolean",
+                  "label": "Debug to Console",
+                  "divider": true
+                },
+                {
+                  "name": "remove_duplicates",
+                  "type": "boolean",
+                  "label": "Remove Duplicates",
+                  "helper": "",
+                  "group": "",
+                  "value": null,
+                  "description": "The specified key will be used to check for duplicates",
+                  "validation": {
+                    "required": "Required field"
+                  }
+                },
+                {
+                  "name": "key",
+                  "type": "dynamic",
+                  "label": "Key",
+                  "helper": "",
+                  "group": "",
+                  "value": null,
+                  "description": "The specified key will be used to check for duplicates",
+                  "validation": {
+                    "required": "Required field"
+                  },
+                  "parent": "remove_duplicates",
+                  "condition": "{parent}===true",
+                  "dynamicType": "text",
+                  "options": null
+                },
+                {
+                  "name": "ignore_err",
+                  "type": "dynamic",
+                  "label": "Ignor Error",
+                  "helper": "",
+                  "group": "",
+                  "value": null,
+                  "description": "Ignore missing key errors",
+                  "validation": null,
+                  "parent": "data_type",
+                  "condition": "{parent}===true",
+                  "dynamicType": "boolean",
+                  "options": null
+                },
+                {
+                  "name": "replace_null",
+                  "type": "boolean",
+                  "label": "Replace Null Values",
+                  "helper": "",
+                  "group": "",
+                  "value": null,
+                  "description": "The specified key will be used to check for duplicates",
+                  "validation": {
+                    "required": "Required field"
+                  }
+                },
+                {
+                  "name": "replacing_text",
+                  "type": "dynamic",
+                  "label": "Replacing Text",
+                  "helper": "",
+                  "group": "",
+                  "value": null,
+                  "description": "The specified key will be used to check for duplicates",
+                  "validation": {
+                    "required": "Required field"
+                  },
+                  "parent": "replace_null",
+                  "condition": "{parent}===true",
+                  "dynamicType": "text",
+                  "options": null
+                }
+              ],
+              "click": null,
+              "icon": "RiBrush2Fill",
+              "values": {
+                "comment": "",
+                "alias": "",
+                "debug": true,
+                "remove_duplicates": true,
+                "replace_null": true,
+                "key": "Person.FirstName",
+                "replacing_text": "ciao"
+              }
+            },
+            "locked": null
+          },
+          "selectable": true,
+          "draggable": true,
+          "positionAbsolute": {
+            "x": 1005,
+            "y": 300
           },
           "__class__": "Node"
         }
       ],
       "edges": [
         {
-          "id": "reactflow__edge-83e28155-7254-460e-8ace-3d1dbd502bbdoutput-e6aeb52d-043e-4608-8a1c-fa56e4096be8json_input",
-          "source": "83e28155-7254-460e-8ace-3d1dbd502bbd",
+          "id": "reactflow__edge-4c7881e1-c5b5-4de7-968e-36e2ceee6263output-1934f10f-560d-48ce-a6ac-a4c8f36678fcjson_input",
+          "source": "4c7881e1-c5b5-4de7-968e-36e2ceee6263",
           "sourceHandle": "output",
-          "target": "e6aeb52d-043e-4608-8a1c-fa56e4096be8",
+          "target": "1934f10f-560d-48ce-a6ac-a4c8f36678fc",
           "targetHandle": "json_input",
           "data": {
             "startColor": "#D770AD",
@@ -340,10 +365,10 @@
           "__class__": "Edge"
         },
         {
-          "id": "reactflow__edge-4c7881e1-c5b5-4de7-968e-36e2ceee6263output-e6aeb52d-043e-4608-8a1c-fa56e4096be8json_input",
-          "source": "4c7881e1-c5b5-4de7-968e-36e2ceee6263",
+          "id": "reactflow__edge-83e28155-7254-460e-8ace-3d1dbd502bbdoutput-1934f10f-560d-48ce-a6ac-a4c8f36678fcjson_input",
+          "source": "83e28155-7254-460e-8ace-3d1dbd502bbd",
           "sourceHandle": "output",
-          "target": "e6aeb52d-043e-4608-8a1c-fa56e4096be8",
+          "target": "1934f10f-560d-48ce-a6ac-a4c8f36678fc",
           "targetHandle": "json_input",
           "data": {
             "startColor": "#D770AD",

@@ -31,7 +31,7 @@ def clean_json_duplicates(search_key, data, ignore_err=False):
         return data
 
 
-def clean_list_duplicates(data):
+def clean_primitive_duplicates(data):
     unique = []
     [unique.append(x) for x in data if x not in unique]
     return [unique]
