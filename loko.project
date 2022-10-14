@@ -3,7 +3,7 @@
   "id": "loko-cleaner",
   "description": "",
   "created_on": "29/09/2022, 12:59:50",
-  "last_modify": "06/10/2022, 15:12:38",
+  "last_modify": "13/10/2022, 07:58:11",
   "graphs": {
     "main": {
       "nodes": [
@@ -11,14 +11,14 @@
           "id": "4c7881e1-c5b5-4de7-968e-36e2ceee6263",
           "position": {
             "x": 438,
-            "y": 141.12944943670388
+            "y": 140.12944943670388
           },
           "type": "custom",
           "dragHandle": "#nodeHandle",
           "sourcePosition": "right",
           "targetPosition": "left",
           "width": 150,
-          "height": 56,
+          "height": 104,
           "selected": false,
           "dragging": false,
           "data": {
@@ -100,7 +100,7 @@
           "draggable": true,
           "positionAbsolute": {
             "x": 438,
-            "y": 141.12944943670388
+            "y": 140.12944943670388
           },
           "__class__": "Node"
         },
@@ -188,7 +188,7 @@
                 "alias": "List",
                 "debug": true,
                 "type": "Object",
-                "value": "['gfg', 1, 2, 'is', 'best', 'best', 1,1,1]"
+                "value": "['gfg', 1, 2, 'is', 'best', 'best', 1,1,1, None, \"\"]"
               }
             },
             "locked": null
@@ -202,10 +202,119 @@
           "__class__": "Node"
         },
         {
-          "id": "1934f10f-560d-48ce-a6ac-a4c8f36678fc",
+          "id": "dacaf5af-f11f-4d1f-a4d2-b66b2cefe8fc",
           "position": {
-            "x": 1005,
-            "y": 300
+            "x": 441,
+            "y": 453
+          },
+          "type": "custom",
+          "dragHandle": "#nodeHandle",
+          "sourcePosition": "right",
+          "targetPosition": "left",
+          "width": 150,
+          "height": 88,
+          "selected": false,
+          "dragging": false,
+          "data": {
+            "name": "CSV Reader",
+            "events": null,
+            "description": "### Description\nThe CSV READER component allows reading files in csv format. \n\nYou have the possibility to set a separator using the **Separator** parameter. The **Infer types** parameter allows the automatic transformation of the type of non-textual fields.\n\n### Input\nThe input required by this component is the file path in PosixPath format. However, the file path can also be defined when the component is created, in which case no input is required.\n\n### Output\nThe submitted file is returned row by row, where each row is represented by a dictionary that has the column names as keys.",
+            "inputs": [
+              {
+                "id": "input",
+                "label": "input"
+              }
+            ],
+            "outputs": [
+              {
+                "id": "output",
+                "label": "output"
+              }
+            ],
+            "configured": true,
+            "options": {
+              "group": "Inputs",
+              "args": [
+                {
+                  "name": "comment",
+                  "type": "area",
+                  "label": "Node comment",
+                  "helper": "Use it to explain the usage of this node"
+                },
+                {
+                  "name": "alias",
+                  "type": "text",
+                  "label": "Name",
+                  "helper": "Use this name as an alias"
+                },
+                {
+                  "name": "debug",
+                  "type": "boolean",
+                  "label": "Debug to Console",
+                  "divider": true
+                },
+                {
+                  "name": "value",
+                  "type": "files",
+                  "label": "File",
+                  "fragment": "files",
+                  "helper": "choose a file or read input"
+                },
+                {
+                  "name": "separator",
+                  "type": "text",
+                  "label": "Separator"
+                },
+                {
+                  "name": "df",
+                  "type": "boolean",
+                  "label": "Dask Dataframe"
+                },
+                {
+                  "name": "infer_type",
+                  "type": "boolean",
+                  "label": "Infer types"
+                },
+                {
+                  "name": "propagate",
+                  "type": "boolean",
+                  "label": "Flush at the end"
+                }
+              ],
+              "click": "Send file",
+              "icon": "RiFileChart2Fill",
+              "values": {
+                "comment": "",
+                "alias": "",
+                "debug": false,
+                "separator": ",",
+                "df": false,
+                "infer_type": true,
+                "propagate": true,
+                "value": {
+                  "name": "snakes_count_10.csv",
+                  "path": "data/snakes_count_10.csv",
+                  "parent": "data",
+                  "isDir": false,
+                  "hidden": false
+                }
+              }
+            },
+            "locked": null
+          },
+          "selectable": true,
+          "draggable": true,
+          "positionAbsolute": {
+            "x": 441,
+            "y": 453
+          },
+          "__class__": "Node"
+        },
+        {
+          "id": "fd0bb830-214e-4d5a-9906-c578f09faa30",
+          "position": {
+            "x": 1147,
+            "y": 454.4460950649911
           },
           "type": "custom",
           "dragHandle": "#nodeHandle",
@@ -256,16 +365,24 @@
                   "divider": true
                 },
                 {
+                  "name": "output_as_a_list",
+                  "type": "boolean",
+                  "label": "Output as a list",
+                  "helper": "",
+                  "group": "",
+                  "value": null,
+                  "description": "The output will be a list containing all the input elements",
+                  "validation": null
+                },
+                {
                   "name": "remove_duplicates",
                   "type": "boolean",
                   "label": "Remove Duplicates",
                   "helper": "",
                   "group": "",
                   "value": null,
-                  "description": "The specified key will be used to check for duplicates",
-                  "validation": {
-                    "required": "Required field"
-                  }
+                  "description": "Remove duplicates from a list of JSON objects or a list",
+                  "validation": null
                 },
                 {
                   "name": "key",
@@ -274,10 +391,8 @@
                   "helper": "",
                   "group": "",
                   "value": null,
-                  "description": "The specified key will be used to check for duplicates",
-                  "validation": {
-                    "required": "Required field"
-                  },
+                  "description": "The specified key will be used to check for duplicates in a list of JSON objects",
+                  "validation": null,
                   "parent": "remove_duplicates",
                   "condition": "{parent}===true",
                   "dynamicType": "text",
@@ -292,7 +407,7 @@
                   "value": null,
                   "description": "Ignore missing key errors",
                   "validation": null,
-                  "parent": "data_type",
+                  "parent": "remove_duplicates",
                   "condition": "{parent}===true",
                   "dynamicType": "boolean",
                   "options": null
@@ -300,14 +415,12 @@
                 {
                   "name": "replace_null",
                   "type": "boolean",
-                  "label": "Replace Null Values",
+                  "label": "Replace None or empty values",
                   "helper": "",
                   "group": "",
                   "value": null,
-                  "description": "The specified key will be used to check for duplicates",
-                  "validation": {
-                    "required": "Required field"
-                  }
+                  "description": "Remove None or Empty values from JSON objects or a list",
+                  "validation": null
                 },
                 {
                   "name": "replacing_text",
@@ -316,7 +429,7 @@
                   "helper": "",
                   "group": "",
                   "value": null,
-                  "description": "The specified key will be used to check for duplicates",
+                  "description": "Empty or None values will be replaced by this text",
                   "validation": {
                     "required": "Required field"
                   },
@@ -330,12 +443,12 @@
               "icon": "RiBrush2Fill",
               "values": {
                 "comment": "",
-                "alias": "",
+                "alias": "Remove Empty Values",
                 "debug": true,
-                "remove_duplicates": true,
+                "output_as_a_list": true,
+                "remove_duplicates": false,
                 "replace_null": true,
-                "key": "Person.FirstName",
-                "replacing_text": "ciao"
+                "replacing_text": "CIAO SONO UN VALORE VUOTO"
               }
             },
             "locked": null
@@ -343,18 +456,185 @@
           "selectable": true,
           "draggable": true,
           "positionAbsolute": {
-            "x": 1005,
-            "y": 300
+            "x": 1147,
+            "y": 454.4460950649911
+          },
+          "__class__": "Node"
+        },
+        {
+          "id": "2b97b52e-fb57-4a39-990c-d0cd8ad02d1c",
+          "position": {
+            "x": 1152.7765420849732,
+            "y": 332.8707460277858
+          },
+          "type": "custom",
+          "dragHandle": "#nodeHandle",
+          "sourcePosition": "right",
+          "targetPosition": "left",
+          "width": 206,
+          "height": 72,
+          "selected": false,
+          "dragging": false,
+          "data": {
+            "name": "Cleaner",
+            "events": null,
+            "description": "",
+            "inputs": [
+              {
+                "id": "json_input",
+                "label": "JSON Input",
+                "service": "clean_input",
+                "to": "cleaned_output"
+              }
+            ],
+            "outputs": [
+              {
+                "id": "cleaned_output",
+                "label": "Cleaned Output"
+              }
+            ],
+            "configured": true,
+            "options": {
+              "group": "Custom",
+              "args": [
+                {
+                  "name": "comment",
+                  "type": "area",
+                  "label": "Node comment",
+                  "helper": "Use it to explain the usage of this node"
+                },
+                {
+                  "name": "alias",
+                  "type": "text",
+                  "label": "Name",
+                  "helper": "Use this name as an alias"
+                },
+                {
+                  "name": "debug",
+                  "type": "boolean",
+                  "label": "Debug to Console",
+                  "divider": true
+                },
+                {
+                  "name": "output_as_a_list",
+                  "type": "boolean",
+                  "label": "Output as a list",
+                  "helper": "",
+                  "group": "",
+                  "value": null,
+                  "description": "The output will be a list containing all the input elements",
+                  "validation": null
+                },
+                {
+                  "name": "remove_duplicates",
+                  "type": "boolean",
+                  "label": "Remove Duplicates",
+                  "helper": "",
+                  "group": "",
+                  "value": null,
+                  "description": "Remove duplicates from a list of JSON objects or a list",
+                  "validation": null
+                },
+                {
+                  "name": "key",
+                  "type": "dynamic",
+                  "label": "Key",
+                  "helper": "",
+                  "group": "",
+                  "value": null,
+                  "description": "The specified key will be used to check for duplicates in a list of JSON objects",
+                  "validation": null,
+                  "parent": "remove_duplicates",
+                  "condition": "{parent}===true",
+                  "dynamicType": "text",
+                  "options": null
+                },
+                {
+                  "name": "ignore_err",
+                  "type": "dynamic",
+                  "label": "Ignor Error",
+                  "helper": "",
+                  "group": "",
+                  "value": null,
+                  "description": "Ignore missing key errors",
+                  "validation": null,
+                  "parent": "remove_duplicates",
+                  "condition": "{parent}===true",
+                  "dynamicType": "boolean",
+                  "options": null
+                },
+                {
+                  "name": "replace_null",
+                  "type": "boolean",
+                  "label": "Replace None or empty values",
+                  "helper": "",
+                  "group": "",
+                  "value": null,
+                  "description": "Remove None or Empty values from JSON objects or a list",
+                  "validation": null
+                },
+                {
+                  "name": "replacing_text",
+                  "type": "dynamic",
+                  "label": "Replacing Text",
+                  "helper": "",
+                  "group": "",
+                  "value": null,
+                  "description": "Empty or None values will be replaced by this text",
+                  "validation": {
+                    "required": "Required field"
+                  },
+                  "parent": "replace_null",
+                  "condition": "{parent}===true",
+                  "dynamicType": "text",
+                  "options": null
+                }
+              ],
+              "click": null,
+              "icon": "RiBrush2Fill",
+              "values": {
+                "comment": "",
+                "alias": "Remove Duplicates",
+                "debug": true,
+                "output_as_a_list": true,
+                "remove_duplicates": true,
+                "replace_null": true,
+                "key": "Person.FirstName",
+                "ignore_err": true,
+                "replacing_text": "CIAO SONO UN VALORE NULL"
+              }
+            },
+            "locked": null
+          },
+          "selectable": true,
+          "draggable": true,
+          "positionAbsolute": {
+            "x": 1152.7765420849732,
+            "y": 332.8707460277858
           },
           "__class__": "Node"
         }
       ],
       "edges": [
         {
-          "id": "reactflow__edge-4c7881e1-c5b5-4de7-968e-36e2ceee6263output-1934f10f-560d-48ce-a6ac-a4c8f36678fcjson_input",
+          "id": "reactflow__edge-dacaf5af-f11f-4d1f-a4d2-b66b2cefe8fcoutput-fd0bb830-214e-4d5a-9906-c578f09faa30json_input",
+          "source": "dacaf5af-f11f-4d1f-a4d2-b66b2cefe8fc",
+          "sourceHandle": "output",
+          "target": "fd0bb830-214e-4d5a-9906-c578f09faa30",
+          "targetHandle": "json_input",
+          "data": {
+            "startColor": "#F8637A",
+            "stopColor": "#888"
+          },
+          "selected": false,
+          "dragging": false,
+          "__class__": "Edge"
+        },
+        {
+          "id": "reactflow__edge-4c7881e1-c5b5-4de7-968e-36e2ceee6263output-2b97b52e-fb57-4a39-990c-d0cd8ad02d1cjson_input",
           "source": "4c7881e1-c5b5-4de7-968e-36e2ceee6263",
           "sourceHandle": "output",
-          "target": "1934f10f-560d-48ce-a6ac-a4c8f36678fc",
+          "target": "2b97b52e-fb57-4a39-990c-d0cd8ad02d1c",
           "targetHandle": "json_input",
           "data": {
             "startColor": "#D770AD",
@@ -365,10 +645,10 @@
           "__class__": "Edge"
         },
         {
-          "id": "reactflow__edge-83e28155-7254-460e-8ace-3d1dbd502bbdoutput-1934f10f-560d-48ce-a6ac-a4c8f36678fcjson_input",
+          "id": "reactflow__edge-83e28155-7254-460e-8ace-3d1dbd502bbdoutput-2b97b52e-fb57-4a39-990c-d0cd8ad02d1cjson_input",
           "source": "83e28155-7254-460e-8ace-3d1dbd502bbd",
           "sourceHandle": "output",
-          "target": "1934f10f-560d-48ce-a6ac-a4c8f36678fc",
+          "target": "2b97b52e-fb57-4a39-990c-d0cd8ad02d1c",
           "targetHandle": "json_input",
           "data": {
             "startColor": "#D770AD",

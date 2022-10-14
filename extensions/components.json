@@ -24,16 +24,24 @@
    "values": {},
    "args": [
     {
+     "name": "output_as_a_list",
+     "type": "boolean",
+     "label": "Output as a list",
+     "helper": "",
+     "group": "",
+     "value": null,
+     "description": "The output will be a list containing all the input elements",
+     "validation": null
+    },
+    {
      "name": "remove_duplicates",
      "type": "boolean",
      "label": "Remove Duplicates",
      "helper": "",
      "group": "",
      "value": null,
-     "description": "The specified key will be used to check for duplicates",
-     "validation": {
-      "required": "Required field"
-     }
+     "description": "Remove duplicates from a list of JSON objects or a list",
+     "validation": null
     },
     {
      "name": "key",
@@ -42,10 +50,8 @@
      "helper": "",
      "group": "",
      "value": null,
-     "description": "The specified key will be used to check for duplicates",
-     "validation": {
-      "required": "Required field"
-     },
+     "description": "The specified key will be used to check for duplicates in a list of JSON objects",
+     "validation": null,
      "parent": "remove_duplicates",
      "condition": "{parent}===true",
      "dynamicType": "text",
@@ -68,14 +74,12 @@
     {
      "name": "replace_null",
      "type": "boolean",
-     "label": "Replace Null Values",
+     "label": "Replace None or empty values",
      "helper": "",
      "group": "",
      "value": null,
-     "description": "The specified key will be used to check for duplicates",
-     "validation": {
-      "required": "Required field"
-     }
+     "description": "Remove None or Empty values from JSON objects or a list",
+     "validation": null
     },
     {
      "name": "replacing_text",
@@ -84,7 +88,7 @@
      "helper": "",
      "group": "",
      "value": null,
-     "description": "The specified key will be used to check for duplicates",
+     "description": "Empty or None values will be replaced by this text",
      "validation": {
       "required": "Required field"
      },
