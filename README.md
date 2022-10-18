@@ -3,7 +3,7 @@ A Loko-AI extension which allows to clean input data by removing duplicates from
 Have you ever tried to import a CSV file or a JSON list of objects into, for example, an SQL based database? How many times have you seen the "Cannot insert the value NULL into column 'column_name'"? With this extension you can clean and sanitize data before the database import
 
 # :wrench: How does it work?
-loko-cleaner deep dive into any input list, with heterogeneous or non-heterogeneous values. It searches for duplicates and keeps only the first occurrence. It also can search for None or empty values that can be replaced with any custom value
+loko-cleaner deep dives into any input list, with heterogeneous or non-heterogeneous values. It searches for duplicates and keeps only the first occurrence. It also can search for None or empty values that can be replaced with any custom value
 
 ### Configuration
 The switch ***Output as a list*** allows user to output cleaned data inside a single list, instead of iterating through each output value.
@@ -18,16 +18,15 @@ A list of JSON objects or a list of heterogeneous and non-heterogeneous values
 Same as input but without duplicates or with None/empty values filled with the custom value 
 
 # :rocket: Getting Started
-
-1. Open Loko-AI, go to "Projects" and click on "Import from git"\
+1. Open Loko-AI, go to ***Projects*** and click on ***Import from git***\
 ![Screenshotworkflow](./resources/imgs/001.jpg)
-2. Copy [this link](https://github.com/tepiddust/loko-cleaner.git), paste into the "Url" field of the dialog box and click "Import"\
+2. Copy [this link](https://github.com/tepiddust/loko-cleaner.git), paste into the ***Url*** field of the dialog box and click ***Import***\
 ![Screenshotworkflow](./resources/imgs/002.jpg)
-3. Open the project and click on the "Play" button next to the project name\
+3. Open the project and click on the ***Play*** button next to the project name\
 ![Screenshotworkflow](./resources/imgs/003.jpg)
 4. Before running the flow for the first time:
-   - Double-click on the "CSV Reader" component
-   - Click on "Upload" and select the "example.csv" file in the extension root folder
-   - Select the newly uploaded file and click "Save"
+   - Double-click on the ***CSV Reader*** component to open the component settings
+   - Click on ***Upload*** and then select the ***example.csv*** file in the extension root folder
+   - Select the newly uploaded file and click ***Save***
 5. Enjoy!\
 ![Screenshotworkflow](./resources/imgs/004.jpg)
