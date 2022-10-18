@@ -2,7 +2,7 @@
 A Loko-AI extension which allows to clean input data by removing duplicates from a JSON objects list or by replacing None or empty values with a specified non-empty value.
 Have you ever tried to import a CSV file or a JSON list of objects into, for example, an SQL based database? How many times have you seen the "Cannot insert the value NULL into column 'column_name'"? With this extension you can clean and sanitize data before the database import
 
-# :bulb: How does it work?
+# :wrench: How does it work?
 loko-cleaner deep dive into any input list, with heterogeneous or non-heterogeneous values. It searches for duplicates and keeps only the first occurrence. It also can search for None or empty values that can be replaced with any custom value
 
 ### Configuration
@@ -20,11 +20,11 @@ Same as input but without duplicates or with None/empty values filled with the c
 # :rocket: Getting Started
 
 1. Open Loko-AI, go to "Projects" and click on "Import from git"\
-![Screenshotworkflow](./resources/imgs/001.jpg)\
+![Screenshotworkflow](./resources/imgs/001.jpg)
 2. Copy [this link](https://github.com/tepiddust/loko-cleaner.git), paste into the "Url" field of the dialog box and click "Import"\
-![Screenshotworkflow](./resources/imgs/002.jpg)\
+![Screenshotworkflow](./resources/imgs/002.jpg)
 3. Open the project and click on the "Play" button next to the project name\
-![Screenshotworkflow](./resources/imgs/003.jpg)\
+![Screenshotworkflow](./resources/imgs/003.jpg)
 4. Before running the flow for the first time:
    - Double-click on the "CSV Reader" component
    - Click on "Upload" and select the "example.csv" file in the extension root folder
