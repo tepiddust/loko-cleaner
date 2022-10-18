@@ -1,5 +1,7 @@
 from loko_extensions.model.components import Arg, Component, save_extensions, Input, Output, Dynamic
 
+from resources.cleaner_doc import cleaner_doc
+
 # Component parameters
 input1 = Input(id='json_input', label='JSON Input', service='clean_input', to='cleaned_output')
 output1 = Output(id='cleaned_output', label='Cleaned Output')
@@ -30,5 +32,5 @@ ignore_err = Dynamic(name="ignore_err", label="Ignor Error", parent="remove_dupl
 # Component creation
 comp1 = Component(name="Cleaner", args=[output_as_a_list, remove_duplicates, key, ignore_err, replace_null, replacing_text],
                   inputs=[input1],
-                  outputs=[output1], configured=False, icon="RiBrush2Fill")
+                  outputs=[output1], configured=False, icon="RiBrush2Fill", description=cleaner_doc)
 save_extensions([comp1])

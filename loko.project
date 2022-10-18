@@ -3,15 +3,15 @@
   "id": "loko-cleaner",
   "description": "",
   "created_on": "29/09/2022, 12:59:50",
-  "last_modify": "13/10/2022, 07:58:11",
+  "last_modify": "18/10/2022, 08:32:31",
   "graphs": {
     "main": {
       "nodes": [
         {
           "id": "4c7881e1-c5b5-4de7-968e-36e2ceee6263",
           "position": {
-            "x": 438,
-            "y": 140.12944943670388
+            "x": 441,
+            "y": 148.12944943670388
           },
           "type": "custom",
           "dragHandle": "#nodeHandle",
@@ -99,16 +99,16 @@
           "selectable": true,
           "draggable": true,
           "positionAbsolute": {
-            "x": 438,
-            "y": 140.12944943670388
+            "x": 441,
+            "y": 148.12944943670388
           },
           "__class__": "Node"
         },
         {
           "id": "83e28155-7254-460e-8ace-3d1dbd502bbd",
           "position": {
-            "x": 439,
-            "y": 293.1294494367039
+            "x": 441,
+            "y": 277.1294494367039
           },
           "type": "custom",
           "dragHandle": "#nodeHandle",
@@ -196,16 +196,16 @@
           "selectable": true,
           "draggable": true,
           "positionAbsolute": {
-            "x": 439,
-            "y": 293.1294494367039
+            "x": 441,
+            "y": 277.1294494367039
           },
           "__class__": "Node"
         },
         {
           "id": "dacaf5af-f11f-4d1f-a4d2-b66b2cefe8fc",
           "position": {
-            "x": 441,
-            "y": 453
+            "x": 444,
+            "y": 408.2973967099941
           },
           "type": "custom",
           "dragHandle": "#nodeHandle",
@@ -286,14 +286,14 @@
               "values": {
                 "comment": "",
                 "alias": "",
-                "debug": false,
+                "debug": true,
                 "separator": ",",
                 "df": false,
                 "infer_type": true,
                 "propagate": true,
                 "value": {
-                  "name": "snakes_count_10.csv",
-                  "path": "data/snakes_count_10.csv",
+                  "name": "example.csv",
+                  "path": "data/example.csv",
                   "parent": "data",
                   "isDir": false,
                   "hidden": false
@@ -305,16 +305,16 @@
           "selectable": true,
           "draggable": true,
           "positionAbsolute": {
-            "x": 441,
-            "y": 453
+            "x": 444,
+            "y": 408.2973967099941
           },
           "__class__": "Node"
         },
         {
           "id": "fd0bb830-214e-4d5a-9906-c578f09faa30",
           "position": {
-            "x": 1147,
-            "y": 454.4460950649911
+            "x": 753,
+            "y": 417.4460950649911
           },
           "type": "custom",
           "dragHandle": "#nodeHandle",
@@ -327,7 +327,7 @@
           "data": {
             "name": "Cleaner",
             "events": null,
-            "description": "",
+            "description": "\n### Description\nCLEANER is the Loko AI component which allows to clean input data by removing duplicates from a JSON objects list or by replacing None or empty values with a specified non-empty value\n### Configuration\nThe switch ***Output as a list*** allows user to output cleaned data inside a single list, instead of iterating through each output value.\nUsers can decide whether clean duplicates or replace None/empty values or both with the corresponding switches.\nIf ***Remove Duplicates*** is switched on and input data is a JSON objects list, users can specify a discriminating key to decide wheter there is a duplicate or not, users can also ignore \"missing key\" errors by toggling the ***Ignore error*** switch.\nIf ***Replace None or empty values*** is switched on, users can specify a custom value. This value is used to fill None or empty values of the input data.\n\n### Input\nA list of JSON objects or a list of heterogeneous and non-heterogeneous values\n\n### Output\nSame as input but without duplicates or with None/empty values filled with the custom value \n",
             "inputs": [
               {
                 "id": "json_input",
@@ -443,12 +443,12 @@
               "icon": "RiBrush2Fill",
               "values": {
                 "comment": "",
-                "alias": "Remove Empty Values",
+                "alias": "Remove empty values",
                 "debug": true,
                 "output_as_a_list": true,
                 "remove_duplicates": false,
                 "replace_null": true,
-                "replacing_text": "CIAO SONO UN VALORE VUOTO"
+                "replacing_text": "Hello! I'm an empty value replaced by this text"
               }
             },
             "locked": null
@@ -456,16 +456,16 @@
           "selectable": true,
           "draggable": true,
           "positionAbsolute": {
-            "x": 1147,
-            "y": 454.4460950649911
+            "x": 753,
+            "y": 417.4460950649911
           },
           "__class__": "Node"
         },
         {
           "id": "2b97b52e-fb57-4a39-990c-d0cd8ad02d1c",
           "position": {
-            "x": 1152.7765420849732,
-            "y": 332.8707460277858
+            "x": 700.7765420849732,
+            "y": 217.8707460277858
           },
           "type": "custom",
           "dragHandle": "#nodeHandle",
@@ -478,7 +478,7 @@
           "data": {
             "name": "Cleaner",
             "events": null,
-            "description": "",
+            "description": "\n### Description\nCLEANER is the Loko AI component which allows to clean input data by removing duplicates from a JSON objects list or by replacing None or empty values with a specified non-empty value\n### Configuration\nThe switch ***Output as a list*** allows user to output cleaned data inside a single list, instead of iterating through each output value.\nUsers can decide whether clean duplicates or replace None/empty values or both with the corresponding switches.\nIf ***Remove Duplicates*** is switched on and input data is a JSON objects list, users can specify a discriminating key to decide wheter there is a duplicate or not, users can also ignore \"missing key\" errors by toggling the ***Ignore error*** switch.\nIf ***Replace None or empty values*** is switched on, users can specify a custom value. This value is used to fill None or empty values of the input data.\n\n### Input\nA list of JSON objects or a list of heterogeneous and non-heterogeneous values\n\n### Output\nSame as input but without duplicates or with None/empty values filled with the custom value \n",
             "inputs": [
               {
                 "id": "json_input",
@@ -594,14 +594,14 @@
               "icon": "RiBrush2Fill",
               "values": {
                 "comment": "",
-                "alias": "Remove Duplicates",
+                "alias": "Remove duplicates and empty values",
                 "debug": true,
                 "output_as_a_list": true,
                 "remove_duplicates": true,
                 "replace_null": true,
                 "key": "Person.FirstName",
                 "ignore_err": true,
-                "replacing_text": "CIAO SONO UN VALORE NULL"
+                "replacing_text": "Hello! I'm an empty value replaced by this text"
               }
             },
             "locked": null
@@ -609,8 +609,8 @@
           "selectable": true,
           "draggable": true,
           "positionAbsolute": {
-            "x": 1152.7765420849732,
-            "y": 332.8707460277858
+            "x": 700.7765420849732,
+            "y": 217.8707460277858
           },
           "__class__": "Node"
         }
