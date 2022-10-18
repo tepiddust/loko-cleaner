@@ -26,7 +26,7 @@ Same as input but without duplicates or with None/empty values filled with the c
 ![Screenshotworkflow](./resources/imgs/003.jpg)
 4. Before running the flow for the first time:
    - Double-click on the ***CSV Reader*** component to open the component settings
-   - Click on ***Upload*** and then select the ***example.csv*** file from the cloned extension folder: ***&#60User Folder&#62/loko/projects/loko-cleaner***
+   - Click on ***Upload*** and then select the ***example.csv*** file from the cloned extension folder: ***`<User Folder>`/loko/projects/loko-cleaner***
    - Select the newly uploaded file and click ***Save***
 5. Enjoy!\
 ![Screenshotworkflow](./resources/imgs/004.jpg)
